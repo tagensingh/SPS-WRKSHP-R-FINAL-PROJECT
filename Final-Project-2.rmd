@@ -1,0 +1,30 @@
+--
+Title: "Simple Shiny Document" 
+Author: "Tage N Singh" 
+Date: "July 27 2020" 
+Output: html_document 
+Runtime: shiny
+--
+
+```{r,chunk1}
+
+library(shiny)
+library(library(shiny)
+
+
+popstatsURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/Birthdays.csv")
+
+popstats <- read.table(file =popstatsURL, header = TRUE , sep = ",")
+
+#summary(popstats)
+
+
+
+shiny.selectInput ( inputId = 'ExampleDropDown' , label = 'Please make a selection' , choices = list ( 'Value 1' = 1 , 'Value 2' = 2 , 'Value 3' = 3 ))
+
+
+shiny.
+
+
+
+```

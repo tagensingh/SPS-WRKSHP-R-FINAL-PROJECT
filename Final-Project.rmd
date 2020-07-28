@@ -1,0 +1,18 @@
+# CUNY    SPS    R-WORKSHOP
+## Final Assignment
+### Tage N Singh
+#### This Project uses a dataset of US births for Every Day in Every State from 1969 to 1988 and is accessed from github.
+#### - (:
+
+```{r,Introduction}
+library(shiny)
+library(datasets)
+
+
+
+#popstatsURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/Birthdays.csv")
+popstatsURL <- ("Birthdays.csv")
+popstats <- read.table(file =popstatsURL, header = TRUE , sep = ",")
+
+summary(popstats)
+```
