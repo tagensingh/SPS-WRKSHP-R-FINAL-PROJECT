@@ -38,18 +38,19 @@ popstats2 <- popstats1
 
 names(popstats2)[1] <- "State_Code"
 names(popstats2)[2] <- "State_Name"
+names(popstats2)[3] <- "Region"
 names(popstats2)[3] <- "Births_1969"
-names(popstats2)[4] <- "Births_1979"
-names(popstats2)[5] <- "Births_1989"
-names(popstats2)[6] <- "GDP_1969"
-names(popstats2)[7] <- "GDP_1979"
-names(popstats2)[8] <- "GDP_1989"
-names(popstats2)[9] <- "Median_HH_Inc_1969"
-names(popstats2)[10] <- "Median_HH_Inc_1979"
-names(popstats2)[11] <- "Median_HH_Inc_19689"
-names(popstats2)[12] <- "Per_Capita_HH_Inc_1969"
-names(popstats2)[13] <- "Per_Capita_HH_Inc_1979"
-names(popstats2)[14] <- "Per_Capita_HH_Inc_1989"
+names(popstats2)[5] <- "Births_1979"
+names(popstats2)[6] <- "Births_1989"
+names(popstats2)[7] <- "GDP_1969"
+names(popstats2)[8] <- "GDP_1979"
+names(popstats2)[9] <- "GDP_1989"
+names(popstats2)[10] <- "Median_HH_Inc_1969"
+names(popstats2)[11] <- "Median_HH_Inc_1979"
+names(popstats2)[12] <- "Median_HH_Inc_19689"
+names(popstats2)[13] <- "Per_Capita_HH_Inc_1969"
+names(popstats2)[14] <- "Per_Capita_HH_Inc_1979"
+names(popstats2)[15] <- "Per_Capita_HH_Inc_1989"
 
 head(popstats2, 6)
 
@@ -64,8 +65,8 @@ head(popstats2, 6)
 
 
 # based on variable values
-popstats3 <- popstats2(which(popstats2$State_Code=='AK')
+#popstats3 <- popstats2(which(popstats2$State_Code=='AK')
 
-summary(popstats3)
+#summary(popstats3)
 
 ```

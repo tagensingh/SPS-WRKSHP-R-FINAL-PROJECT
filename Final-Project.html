@@ -417,108 +417,92 @@ popstatsURL &lt;- (&quot;1-SPS-Project-Consolidate-Data.csv&quot;)
 popstats1 &lt;- read.table(file =popstatsURL, header = TRUE , sep = &quot;,&quot;)
 
 summary(popstats1)</code></pre>
-<pre><code>##     State            State_Name         X1969_Births     X1979_Births   
-##  Length:51          Length:51          Min.   :  5874   Min.   :  7292  
-##  Class :character   Class :character   1st Qu.: 19306   1st Qu.: 19883  
-##  Mode  :character   Mode  :character   Median : 47896   Median : 47389  
-##                                        Mean   : 70569   Mean   : 68622  
-##                                        3rd Qu.: 86444   3rd Qu.: 78964  
-##                                        Max.   :352858   Max.   :379212  
-##   X1989_Births    X1969_GDP_C_DLS  X1979_GDP_C_DLS  X1989_GDP_C_DLS 
-##  Min.   :  6768   Min.   :  1798   Min.   :  4399   Min.   : 10730  
-##  1st Qu.: 20201   1st Qu.:  4102   1st Qu.: 12505   1st Qu.: 27255  
-##  Median : 50381   Median :  9622   Median : 33496   Median : 65526  
-##  Mean   : 76741   Mean   : 18881   Mean   : 48812   Mean   :105217  
-##  3rd Qu.: 85797   3rd Qu.: 20260   3rd Qu.: 52526   3rd Qu.:120929  
-##  Max.   :533429   Max.   :107031   Max.   :293491   Max.   :722979  
-##  X1969_Med_HH_Inc X1979_Med_HH_Inc X1989_Med_HH_Inc X1969_HH_Inc_Per_C_DLS
-##  Min.   : 5221    Min.   :12096    Min.   :20136    Min.   :13935         
-##  1st Qu.: 7132    1st Qu.:14770    1st Qu.:25637    1st Qu.:18778         
-##  Median : 8199    Median :16647    Median :28706    Median :21370         
-##  Mean   : 8163    Mean   :16631    Mean   :29135    Mean   :21344         
-##  3rd Qu.: 9196    3rd Qu.:17804    3rd Qu.:31682    3rd Qu.:23969         
-##  Max.   :11817    Max.   :25414    Max.   :41721    Max.   :28124         
-##  X1979_HH_Inc_Per_C_DLS X1989_HH_Inc_Per_C_DLS
-##  Min.   :19675          Min.   :20576         
-##  1st Qu.:23826          1st Qu.:25369         
-##  Median :27088          Median :28617         
-##  Mean   :26924          Mean   :29348         
-##  3rd Qu.:28935          3rd Qu.:32433         
-##  Max.   :38693          Max.   :43057</code></pre>
-<div id="fixing-the-headers" class="section level4">
-<h4>– Fixing The Headers</h4>
-<pre class="r"><code>popstats2 &lt;- popstats1
-
-names(popstats2)[1] &lt;- &quot;State_Code&quot;
-names(popstats2)[2] &lt;- &quot;State_Name&quot;
-names(popstats2)[3] &lt;- &quot;Births_1969&quot;
-names(popstats2)[4] &lt;- &quot;Births_1979&quot;
-names(popstats2)[5] &lt;- &quot;Births_1989&quot;
-names(popstats2)[6] &lt;- &quot;GDP_1969&quot;
-names(popstats2)[7] &lt;- &quot;GDP_1979&quot;
-names(popstats2)[8] &lt;- &quot;GDP_1989&quot;
-names(popstats2)[9] &lt;- &quot;Median_HH_Inc_1969&quot;
-names(popstats2)[10] &lt;- &quot;Median_HH_Inc_1979&quot;
-names(popstats2)[11] &lt;- &quot;Median_HH_Inc_19689&quot;
-names(popstats2)[12] &lt;- &quot;Per_Capita_HH_Inc_1969&quot;
-names(popstats2)[13] &lt;- &quot;Per_Capita_HH_Inc_1979&quot;
-names(popstats2)[14] &lt;- &quot;Per_Capita_HH_Inc_1989&quot;
-
-head(popstats2, 6)</code></pre>
-<pre><code>##   State_Code State_Name Births_1969 Births_1979 Births_1989 GDP_1969 GDP_1979
-## 1         AK     Alaska        6824        9005       11105     2074    10891
-## 2         AL    Alabama       64068       61688       59917    11866    33712
-## 3         AR   Arkansas       33400       35406       34139     6232    19099
-## 4         AZ    Arizona       34064       46714       65655     7563    27495
-## 5         CA California      352858      379212      533429   106629   293491
-## 6         CO   Colorado       40100       47741       53518     9480    33785
-##   GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979 Median_HH_Inc_19689
-## 1    23453              11817              25414               41408
-## 2    68394               6419              13669               23597
-## 3    37128               5356              12214               21147
-## 4    67896               8199              16448               27540
-## 5   722979               9302              18243               35798
-## 6    71179               8423              18056               30140
-##   Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979 Per_Capita_HH_Inc_1989
-## 1                  26966                  38693                  37557
-## 2                  16773                  22374                  24496
-## 3                  15506                  21311                  22436
-## 4                  21262                  26728                  28708
-## 5                  26162                  31488                  34995
-## 6                  22485                  30360                  31609</code></pre>
-<p>####Computing the correlation By State</p>
-<pre class="r"><code># using subset function
-popstats3 &lt;- subset(popstats2, state_code = &quot;AK&quot;,select=State_Code:Per_Capita_HH_Inc_1989)
-
-summary(popstats3)</code></pre>
-<pre><code>##   State_Code         State_Name         Births_1969      Births_1979    
-##  Length:51          Length:51          Min.   :  5874   Min.   :  7292  
-##  Class :character   Class :character   1st Qu.: 19306   1st Qu.: 19883  
-##  Mode  :character   Mode  :character   Median : 47896   Median : 47389  
-##                                        Mean   : 70569   Mean   : 68622  
-##                                        3rd Qu.: 86444   3rd Qu.: 78964  
-##                                        Max.   :352858   Max.   :379212  
-##   Births_1989        GDP_1969         GDP_1979         GDP_1989     
-##  Min.   :  6768   Min.   :  1798   Min.   :  4399   Min.   : 10730  
-##  1st Qu.: 20201   1st Qu.:  4102   1st Qu.: 12505   1st Qu.: 27255  
-##  Median : 50381   Median :  9622   Median : 33496   Median : 65526  
-##  Mean   : 76741   Mean   : 18881   Mean   : 48812   Mean   :105217  
-##  3rd Qu.: 85797   3rd Qu.: 20260   3rd Qu.: 52526   3rd Qu.:120929  
-##  Max.   :533429   Max.   :107031   Max.   :293491   Max.   :722979  
-##  Median_HH_Inc_1969 Median_HH_Inc_1979 Median_HH_Inc_19689
-##  Min.   : 5221      Min.   :12096      Min.   :20136      
-##  1st Qu.: 7132      1st Qu.:14770      1st Qu.:25637      
-##  Median : 8199      Median :16647      Median :28706      
-##  Mean   : 8163      Mean   :16631      Mean   :29135      
-##  3rd Qu.: 9196      3rd Qu.:17804      3rd Qu.:31682      
-##  Max.   :11817      Max.   :25414      Max.   :41721      
-##  Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979 Per_Capita_HH_Inc_1989
+<pre><code>##     State            State.Name           Region           X1969.Births   
+##  Length:51          Length:51          Length:51          Min.   :  5874  
+##  Class :character   Class :character   Class :character   1st Qu.: 19306  
+##  Mode  :character   Mode  :character   Mode  :character   Median : 47896  
+##                                                           Mean   : 70569  
+##                                                           3rd Qu.: 86444  
+##                                                           Max.   :352858  
+##   X1979.Births     X1989.Births    X1969.GDP.C.DLS  X1979.GDP.C.DLS 
+##  Min.   :  7292   Min.   :  6768   Min.   :  1798   Min.   :  4399  
+##  1st Qu.: 19883   1st Qu.: 20201   1st Qu.:  4102   1st Qu.: 12505  
+##  Median : 47389   Median : 50381   Median :  9622   Median : 33496  
+##  Mean   : 68622   Mean   : 76741   Mean   : 18881   Mean   : 48812  
+##  3rd Qu.: 78964   3rd Qu.: 85797   3rd Qu.: 20260   3rd Qu.: 52526  
+##  Max.   :379212   Max.   :533429   Max.   :107031   Max.   :293491  
+##  X1989.GDP.C.DLS  X1969.Med.HH.Inc X1979.Med.HH.Inc X1989.Med.HH.Inc
+##  Min.   : 10730   Min.   : 5221    Min.   :12096    Min.   :20136   
+##  1st Qu.: 27255   1st Qu.: 7132    1st Qu.:14770    1st Qu.:25637   
+##  Median : 65526   Median : 8199    Median :16647    Median :28706   
+##  Mean   :105217   Mean   : 8163    Mean   :16631    Mean   :29135   
+##  3rd Qu.:120929   3rd Qu.: 9196    3rd Qu.:17804    3rd Qu.:31682   
+##  Max.   :722979   Max.   :11817    Max.   :25414    Max.   :41721   
+##  X1969.HH.Inc.Per.C.DLS X1979.HH.Inc.Per.C.DLS X1989.HH.Inc.Per.C.DLS
 ##  Min.   :13935          Min.   :19675          Min.   :20576         
 ##  1st Qu.:18778          1st Qu.:23826          1st Qu.:25369         
 ##  Median :21370          Median :27088          Median :28617         
 ##  Mean   :21344          Mean   :26924          Mean   :29348         
 ##  3rd Qu.:23969          3rd Qu.:28935          3rd Qu.:32433         
 ##  Max.   :28124          Max.   :38693          Max.   :43057</code></pre>
+<div id="fixing-the-headers" class="section level4">
+<h4>– Fixing The Headers</h4>
+<pre class="r"><code>popstats2 &lt;- popstats1
+
+names(popstats2)[1] &lt;- &quot;State_Code&quot;
+names(popstats2)[2] &lt;- &quot;State_Name&quot;
+names(popstats2)[3] &lt;- &quot;Region&quot;
+names(popstats2)[3] &lt;- &quot;Births_1969&quot;
+names(popstats2)[5] &lt;- &quot;Births_1979&quot;
+names(popstats2)[6] &lt;- &quot;Births_1989&quot;
+names(popstats2)[7] &lt;- &quot;GDP_1969&quot;
+names(popstats2)[8] &lt;- &quot;GDP_1979&quot;
+names(popstats2)[9] &lt;- &quot;GDP_1989&quot;
+names(popstats2)[10] &lt;- &quot;Median_HH_Inc_1969&quot;
+names(popstats2)[11] &lt;- &quot;Median_HH_Inc_1979&quot;
+names(popstats2)[12] &lt;- &quot;Median_HH_Inc_19689&quot;
+names(popstats2)[13] &lt;- &quot;Per_Capita_HH_Inc_1969&quot;
+names(popstats2)[14] &lt;- &quot;Per_Capita_HH_Inc_1979&quot;
+names(popstats2)[15] &lt;- &quot;Per_Capita_HH_Inc_1989&quot;
+
+head(popstats2, 6)</code></pre>
+<pre><code>##   State_Code State_Name Births_1969 X1969.Births Births_1979 Births_1989
+## 1         CA California        West       352858      379212      533429
+## 2         HI     Hawaii        West        15750       17568       19051
+## 3         NV     Nevada        West         8902       12293       17894
+## 4         IL   Illinois Great Lakes       193136      181153      181679
+## 5         IN    Indiana Great Lakes        94562       87380       81635
+## 6         MI   Michigan Great Lakes       163940      143237      137965
+##   GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 1   106629   293491   722979               9302              18243
+## 2     4262    11869    29427              10675              20473
+## 3     2947    10295    27847               9505              18211
+## 4    60840   139253   266608               9706              19321
+## 5    24212    57918   107199               8921              17582
+## 6    47895   105413   190626               9997              19223
+##   Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 1               35798                  26162                  31488
+## 2               38829                  24418                  29381
+## 3               31011                  25728                  32088
+## 4               32252                  25301                  30619
+## 5               28797                  22224                  27111
+## 6               31020                  24302                  29184
+##   Per_Capita_HH_Inc_1989
+## 1                  34995
+## 2                  33633
+## 3                  32447
+## 4                  32419
+## 5                  28043
+## 6                  30186</code></pre>
+<p>####Computing the correlation By State</p>
+<pre class="r"><code># using subset function
+#popstats3 &lt;- subset(popstats2, state_code = &quot;AK&quot;,select=State_Code:Per_Capita_HH_Inc_1989)
+
+
+# based on variable values
+#popstats3 &lt;- popstats2(which(popstats2$State_Code==&#39;AK&#39;)
+
+#summary(popstats3)</code></pre>
 </div>
 </div>
 </div>
