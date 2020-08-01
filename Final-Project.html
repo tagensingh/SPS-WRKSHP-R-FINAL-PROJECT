@@ -409,9 +409,9 @@ library(ggplot2)
 
 popstatsURL &lt;- (&quot;https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/1-SPS-Project-Consolidate-Data.csv&quot;)
 popstatsURL &lt;- (&quot;1-SPS-Project-Consolidate-Data.csv&quot;)
-popstats &lt;- read.table(file =popstatsURL, header = TRUE , sep = &quot;,&quot;)
+popstats1 &lt;- read.table(file =popstatsURL, header = TRUE , sep = &quot;,&quot;)
 
-summary(popstats)</code></pre>
+summary(popstats1)</code></pre>
 <pre><code>##     State            State_Name         X1969_Births     X1979_Births   
 ##  Length:51          Length:51          Min.   :  5874   Min.   :  7292  
 ##  Class :character   Class :character   1st Qu.: 19306   1st Qu.: 19883  
@@ -440,6 +440,55 @@ summary(popstats)</code></pre>
 ##  Mean   :26924          Mean   :29348         
 ##  3rd Qu.:28935          3rd Qu.:32433         
 ##  Max.   :38693          Max.   :43057</code></pre>
+<div id="fixing-the-headers" class="section level4">
+<h4>– Fixing The Headers</h4>
+<pre class="r"><code>popstats2 &lt;- popstats1
+
+names(popstats2)[1] &lt;- &quot;State_Code&quot;
+names(popstats2)[2] &lt;- &quot;State_Name&quot;
+names(popstats2)[3] &lt;- &quot;Births_1969&quot;
+names(popstats2)[4] &lt;- &quot;Births_1979&quot;
+names(popstats2)[5] &lt;- &quot;Births_1989&quot;
+names(popstats2)[6] &lt;- &quot;GDP_1969&quot;
+names(popstats2)[7] &lt;- &quot;GDP_1979&quot;
+names(popstats2)[8] &lt;- &quot;GDP_1989&quot;
+names(popstats2)[9] &lt;- &quot;Median_HH_Inc_1969&quot;
+names(popstats2)[10] &lt;- &quot;Median_HH_Inc_1979&quot;
+names(popstats2)[11] &lt;- &quot;Median_HH_Inc_19689&quot;
+names(popstats2)[12] &lt;- &quot;Per_Capita_HH_Inc_1969&quot;
+names(popstats2)[13] &lt;- &quot;Per_Capita_HH_Inc_1979&quot;
+names(popstats2)[14] &lt;- &quot;Per_Capita_HH_Inc_1989&quot;
+
+summary(popstats2)</code></pre>
+<pre><code>##   State_Code         State_Name         Births_1969      Births_1979    
+##  Length:51          Length:51          Min.   :  5874   Min.   :  7292  
+##  Class :character   Class :character   1st Qu.: 19306   1st Qu.: 19883  
+##  Mode  :character   Mode  :character   Median : 47896   Median : 47389  
+##                                        Mean   : 70569   Mean   : 68622  
+##                                        3rd Qu.: 86444   3rd Qu.: 78964  
+##                                        Max.   :352858   Max.   :379212  
+##   Births_1989        GDP_1969         GDP_1979         GDP_1989     
+##  Min.   :  6768   Min.   :  1798   Min.   :  4399   Min.   : 10730  
+##  1st Qu.: 20201   1st Qu.:  4102   1st Qu.: 12505   1st Qu.: 27255  
+##  Median : 50381   Median :  9622   Median : 33496   Median : 65526  
+##  Mean   : 76741   Mean   : 18881   Mean   : 48812   Mean   :105217  
+##  3rd Qu.: 85797   3rd Qu.: 20260   3rd Qu.: 52526   3rd Qu.:120929  
+##  Max.   :533429   Max.   :107031   Max.   :293491   Max.   :722979  
+##  Median_HH_Inc_1969 Median_HH_Inc_1979 Median_HH_Inc_19689
+##  Min.   : 5221      Min.   :12096      Min.   :20136      
+##  1st Qu.: 7132      1st Qu.:14770      1st Qu.:25637      
+##  Median : 8199      Median :16647      Median :28706      
+##  Mean   : 8163      Mean   :16631      Mean   :29135      
+##  3rd Qu.: 9196      3rd Qu.:17804      3rd Qu.:31682      
+##  Max.   :11817      Max.   :25414      Max.   :41721      
+##  Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979 Per_Capita_HH_Inc_1989
+##  Min.   :13935          Min.   :19675          Min.   :20576         
+##  1st Qu.:18778          1st Qu.:23826          1st Qu.:25369         
+##  Median :21370          Median :27088          Median :28617         
+##  Mean   :21344          Mean   :26924          Mean   :29348         
+##  3rd Qu.:23969          3rd Qu.:28935          3rd Qu.:32433         
+##  Max.   :28124          Max.   :38693          Max.   :43057</code></pre>
+</div>
 </div>
 </div>
 </div>
