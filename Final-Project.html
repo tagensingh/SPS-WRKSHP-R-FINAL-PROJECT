@@ -376,30 +376,43 @@ summary {
 </div>
 <div id="section" class="section level4">
 <h4>- (:</h4>
-<pre class="r"><code>library(shiny)
-library(datasets)
+<pre class="r"><code>#library(datasets)
 
 
 
-#popstatsURL &lt;- (&quot;https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/Birthdays.csv&quot;)
-popstatsURL &lt;- (&quot;Birthdays.csv&quot;)
+popstatsURL &lt;- (&quot;https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/1-SPS-Project-Consolidate-Data.csv&quot;)
+popstatsURL &lt;- (&quot;1-SPS-Project-Consolidate-Data.csv&quot;)
 popstats &lt;- read.table(file =popstatsURL, header = TRUE , sep = &quot;,&quot;)
 
 summary(popstats)</code></pre>
-<pre><code>##     State                Year          Month             Day       
-##  Length:372864      Min.   :1969   Min.   : 1.000   Min.   : 1.00  
-##  Class :character   1st Qu.:1973   1st Qu.: 4.000   1st Qu.: 8.00  
-##  Mode  :character   Median :1978   Median : 7.000   Median :16.00  
-##                     Mean   :1978   Mean   : 6.522   Mean   :15.74  
-##                     3rd Qu.:1983   3rd Qu.:10.000   3rd Qu.:23.00  
-##                     Max.   :1988   Max.   :12.000   Max.   :31.00  
-##      Date             Weekday              Births    
-##  Length:372864      Length:372864      Min.   :   1  
-##  Class :character   Class :character   1st Qu.:  52  
-##  Mode  :character   Mode  :character   Median : 129  
-##                                        Mean   : 189  
-##                                        3rd Qu.: 223  
-##                                        Max.   :1779</code></pre>
+<pre><code>##     State            State.Name         X1969.Births     X1979.Births   
+##  Length:51          Length:51          Min.   :  5874   Min.   :  7292  
+##  Class :character   Class :character   1st Qu.: 19306   1st Qu.: 19883  
+##  Mode  :character   Mode  :character   Median : 47896   Median : 47389  
+##                                        Mean   : 70569   Mean   : 68622  
+##                                        3rd Qu.: 86444   3rd Qu.: 78964  
+##                                        Max.   :352858   Max.   :379212  
+##   X1989.Births    X1969.GDP.C.DLS  X1979.GDP.C.DLS  X1989.GDP.C.DLS 
+##  Min.   :  6768   Min.   :  1798   Min.   :  4399   Min.   : 10730  
+##  1st Qu.: 20201   1st Qu.:  4102   1st Qu.: 12505   1st Qu.: 27255  
+##  Median : 50381   Median :  9622   Median : 33496   Median : 65526  
+##  Mean   : 76741   Mean   : 18881   Mean   : 48812   Mean   :105217  
+##  3rd Qu.: 85797   3rd Qu.: 20260   3rd Qu.: 52526   3rd Qu.:120929  
+##  Max.   :533429   Max.   :107031   Max.   :293491   Max.   :722979  
+##  X1969.Med.HH.Inc X1979.Med.HH.Inc X1989.Med.HH.Inc X1969.HH.Inc.Per.C.DLS
+##  Min.   : 5221    Min.   :12096    Min.   :20136    Min.   :13935         
+##  1st Qu.: 7132    1st Qu.:14770    1st Qu.:25637    1st Qu.:18778         
+##  Median : 8199    Median :16647    Median :28706    Median :21370         
+##  Mean   : 8163    Mean   :16631    Mean   :29135    Mean   :21344         
+##  3rd Qu.: 9196    3rd Qu.:17804    3rd Qu.:31682    3rd Qu.:23969         
+##  Max.   :11817    Max.   :25414    Max.   :41721    Max.   :28124         
+##  X1979.HH.Inc.Per.C.DLS X1989.HH.Inc.Per.C.DLS
+##  Min.   :19675          Min.   :20576         
+##  1st Qu.:23826          1st Qu.:25369         
+##  Median :27088          Median :28617         
+##  Mean   :26924          Mean   :29348         
+##  3rd Qu.:28935          3rd Qu.:32433         
+##  Max.   :38693          Max.   :43057</code></pre>
 </div>
 </div>
 </div>

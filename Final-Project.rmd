@@ -5,13 +5,12 @@
 #### - (:
 
 ```{r,Introduction}
-library(shiny)
-library(datasets)
+#library(datasets)
 
 
 
-#popstatsURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/Birthdays.csv")
-popstatsURL <- ("Birthdays.csv")
+popstatsURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/1-SPS-Project-Consolidate-Data.csv")
+popstatsURL <- ("1-SPS-Project-Consolidate-Data.csv")
 popstats <- read.table(file =popstatsURL, header = TRUE , sep = ",")
 
 summary(popstats)
