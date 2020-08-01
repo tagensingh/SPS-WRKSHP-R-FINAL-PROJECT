@@ -371,12 +371,39 @@ summary {
 <h2>Final Assignment</h2>
 <div id="tage-n-singh" class="section level3">
 <h3>Tage N Singh</h3>
-<div id="this-project-uses-a-dataset-of-us-births-for-every-day-in-every-state-from-1969-to-1988-and-is-accessed-from-github." class="section level4">
-<h4>This Project uses a dataset of US births for Every Day in Every State from 1969 to 1988 and is accessed from github.</h4>
+<div id="this-project-use-a-consolidate-dataset-from-1969-to-1989-and-is-accessed-from-github." class="section level4">
+<h4>This Project use A Consolidate Dataset From 1969 to 1989 and is accessed from github.</h4>
 </div>
-<div id="section" class="section level4">
-<h4>- (:</h4>
-<pre class="r"><code>#library(datasets)
+<div id="the-question" class="section level4">
+<h4>The Question ? ?</h4>
+</div>
+<div id="is-there-correlation-across-states-in-the-us-among-the-following" class="section level4">
+<h4>– Is THERE CORRELATION ACROSS STATES IN THE US AMONG THE FOLLOWING : :</h4>
+</div>
+<div id="us-birth-rates" class="section level4">
+<h4>– US BIRTH RATES</h4>
+</div>
+<div id="median-household-income" class="section level4">
+<h4>– MEDIAN HOUSEHOLD INCOME</h4>
+</div>
+<div id="per-capita-household-income" class="section level4">
+<h4>– PER CAPITA HOUSEHOLD INCOME</h4>
+</div>
+<div id="us-gross-deomestic-product-gdp" class="section level4">
+<h4>– US GROSS DEOMESTIC PRODUCT (GDP)</h4>
+</div>
+<div id="for-the-decades-ending-1969-19791989" class="section level4">
+<h4>– FOR THE DECADES ENDING 1969, 1979,1989</h4>
+</div>
+<div id="current-dollars" class="section level4">
+<h4>– ( CURRENT DOLLARS)</h4>
+</div>
+</div>
+<div id="section" class="section level3">
+<h3>- (:</h3>
+<pre class="r"><code>library(datasets)
+library(ggplot2)
+
 
 
 
@@ -385,35 +412,34 @@ popstatsURL &lt;- (&quot;1-SPS-Project-Consolidate-Data.csv&quot;)
 popstats &lt;- read.table(file =popstatsURL, header = TRUE , sep = &quot;,&quot;)
 
 summary(popstats)</code></pre>
-<pre><code>##     State            State.Name         X1969.Births     X1979.Births   
+<pre><code>##     State            State_Name         X1969_Births     X1979_Births   
 ##  Length:51          Length:51          Min.   :  5874   Min.   :  7292  
 ##  Class :character   Class :character   1st Qu.: 19306   1st Qu.: 19883  
 ##  Mode  :character   Mode  :character   Median : 47896   Median : 47389  
 ##                                        Mean   : 70569   Mean   : 68622  
 ##                                        3rd Qu.: 86444   3rd Qu.: 78964  
 ##                                        Max.   :352858   Max.   :379212  
-##   X1989.Births    X1969.GDP.C.DLS  X1979.GDP.C.DLS  X1989.GDP.C.DLS 
+##   X1989_Births    X1969_GDP_C_DLS  X1979_GDP_C_DLS  X1989_GDP_C_DLS 
 ##  Min.   :  6768   Min.   :  1798   Min.   :  4399   Min.   : 10730  
 ##  1st Qu.: 20201   1st Qu.:  4102   1st Qu.: 12505   1st Qu.: 27255  
 ##  Median : 50381   Median :  9622   Median : 33496   Median : 65526  
 ##  Mean   : 76741   Mean   : 18881   Mean   : 48812   Mean   :105217  
 ##  3rd Qu.: 85797   3rd Qu.: 20260   3rd Qu.: 52526   3rd Qu.:120929  
 ##  Max.   :533429   Max.   :107031   Max.   :293491   Max.   :722979  
-##  X1969.Med.HH.Inc X1979.Med.HH.Inc X1989.Med.HH.Inc X1969.HH.Inc.Per.C.DLS
+##  X1969_Med_HH_Inc X1979_Med_HH_Inc X1989_Med_HH_Inc X1969_HH_Inc_Per_C_DLS
 ##  Min.   : 5221    Min.   :12096    Min.   :20136    Min.   :13935         
 ##  1st Qu.: 7132    1st Qu.:14770    1st Qu.:25637    1st Qu.:18778         
 ##  Median : 8199    Median :16647    Median :28706    Median :21370         
 ##  Mean   : 8163    Mean   :16631    Mean   :29135    Mean   :21344         
 ##  3rd Qu.: 9196    3rd Qu.:17804    3rd Qu.:31682    3rd Qu.:23969         
 ##  Max.   :11817    Max.   :25414    Max.   :41721    Max.   :28124         
-##  X1979.HH.Inc.Per.C.DLS X1989.HH.Inc.Per.C.DLS
+##  X1979_HH_Inc_Per_C_DLS X1989_HH_Inc_Per_C_DLS
 ##  Min.   :19675          Min.   :20576         
 ##  1st Qu.:23826          1st Qu.:25369         
 ##  Median :27088          Median :28617         
 ##  Mean   :26924          Mean   :29348         
 ##  3rd Qu.:28935          3rd Qu.:32433         
 ##  Max.   :38693          Max.   :43057</code></pre>
-</div>
 </div>
 </div>
 </div>

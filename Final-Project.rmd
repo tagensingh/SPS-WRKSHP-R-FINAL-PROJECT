@@ -1,11 +1,23 @@
 # CUNY    SPS    R-WORKSHOP
 ## Final Assignment
 ### Tage N Singh
-#### This Project uses a dataset of US births for Every Day in Every State from 1969 to 1988 and is accessed from github.
-#### - (:
+#### This Project use A Consolidate Dataset From 1969 to 1989 and is accessed from github.
+#### The Question ? ?
+#### -- Is THERE CORRELATION ACROSS STATES IN THE US AMONG THE FOLLOWING : :
+#### -- US BIRTH RATES
+#### -- MEDIAN HOUSEHOLD INCOME
+#### -- PER CAPITA HOUSEHOLD INCOME
+#### -- US GROSS DEOMESTIC PRODUCT (GDP)
+#### -- FOR THE DECADES ENDING 1969, 1979,1989
+#### -- ( CURRENT DOLLARS)
+
+
+### - (:
 
 ```{r,Introduction}
-#library(datasets)
+library(datasets)
+library(ggplot2)
+
 
 
 
