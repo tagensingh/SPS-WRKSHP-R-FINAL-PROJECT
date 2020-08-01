@@ -377,8 +377,8 @@ summary {
 <div id="the-question" class="section level4">
 <h4>The Question ? ?</h4>
 </div>
-<div id="is-there-correlation-across-states-in-the-us-among-the-following" class="section level4">
-<h4>– Is THERE CORRELATION ACROSS STATES IN THE US AMONG THE FOLLOWING : :</h4>
+<div id="is-there-correlation-across-states-and-dc-in-the-us-among-the-following" class="section level4">
+<h4>– Is THERE CORRELATION ACROSS STATES (AND DC) IN THE US AMONG THE FOLLOWING : :</h4>
 </div>
 <div id="us-birth-rates" class="section level4">
 <h4>– US BIRTH RATES</h4>
@@ -403,11 +403,16 @@ summary {
 <h3>- (:</h3>
 <pre class="r"><code>library(datasets)
 library(ggplot2)
-
-
-
-
-popstatsURL &lt;- (&quot;https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/1-SPS-Project-Consolidate-Data.csv&quot;)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>popstatsURL &lt;- (&quot;https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/1-SPS-Project-Consolidate-Data.csv&quot;)
 popstatsURL &lt;- (&quot;1-SPS-Project-Consolidate-Data.csv&quot;)
 popstats1 &lt;- read.table(file =popstatsURL, header = TRUE , sep = &quot;,&quot;)
 
@@ -459,7 +464,33 @@ names(popstats2)[12] &lt;- &quot;Per_Capita_HH_Inc_1969&quot;
 names(popstats2)[13] &lt;- &quot;Per_Capita_HH_Inc_1979&quot;
 names(popstats2)[14] &lt;- &quot;Per_Capita_HH_Inc_1989&quot;
 
-summary(popstats2)</code></pre>
+head(popstats2, 6)</code></pre>
+<pre><code>##   State_Code State_Name Births_1969 Births_1979 Births_1989 GDP_1969 GDP_1979
+## 1         AK     Alaska        6824        9005       11105     2074    10891
+## 2         AL    Alabama       64068       61688       59917    11866    33712
+## 3         AR   Arkansas       33400       35406       34139     6232    19099
+## 4         AZ    Arizona       34064       46714       65655     7563    27495
+## 5         CA California      352858      379212      533429   106629   293491
+## 6         CO   Colorado       40100       47741       53518     9480    33785
+##   GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979 Median_HH_Inc_19689
+## 1    23453              11817              25414               41408
+## 2    68394               6419              13669               23597
+## 3    37128               5356              12214               21147
+## 4    67896               8199              16448               27540
+## 5   722979               9302              18243               35798
+## 6    71179               8423              18056               30140
+##   Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979 Per_Capita_HH_Inc_1989
+## 1                  26966                  38693                  37557
+## 2                  16773                  22374                  24496
+## 3                  15506                  21311                  22436
+## 4                  21262                  26728                  28708
+## 5                  26162                  31488                  34995
+## 6                  22485                  30360                  31609</code></pre>
+<p>####Computing the correlation By State</p>
+<pre class="r"><code># using subset function
+popstats3 &lt;- subset(popstats2, state_code = &quot;AK&quot;,select=State_Code:Per_Capita_HH_Inc_1989)
+
+summary(popstats3)</code></pre>
 <pre><code>##   State_Code         State_Name         Births_1969      Births_1979    
 ##  Length:51          Length:51          Min.   :  5874   Min.   :  7292  
 ##  Class :character   Class :character   1st Qu.: 19306   1st Qu.: 19883  

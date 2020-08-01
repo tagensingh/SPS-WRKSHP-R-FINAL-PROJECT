@@ -3,7 +3,7 @@
 ### Tage N Singh
 #### This Project use A Consolidate Dataset From 1969 to 1989 and is accessed from github.
 #### The Question ? ?
-#### -- Is THERE CORRELATION ACROSS STATES IN THE US AMONG THE FOLLOWING : :
+#### -- Is THERE CORRELATION ACROSS STATES (AND DC) IN THE US AMONG THE FOLLOWING : :
 #### -- US BIRTH RATES
 #### -- MEDIAN HOUSEHOLD INCOME
 #### -- PER CAPITA HOUSEHOLD INCOME
@@ -29,9 +29,11 @@ popstats1 <- read.table(file =popstatsURL, header = TRUE , sep = ",")
 summary(popstats1)
 
 ```
+
 #### -- Fixing The Headers
 
 ```{r, Headers}
+
 popstats2 <- popstats1
 
 names(popstats2)[1] <- "State_Code"
@@ -49,6 +51,21 @@ names(popstats2)[12] <- "Per_Capita_HH_Inc_1969"
 names(popstats2)[13] <- "Per_Capita_HH_Inc_1979"
 names(popstats2)[14] <- "Per_Capita_HH_Inc_1989"
 
-summary(popstats2)
+head(popstats2, 6)
+
+```
+
+####Computing the correlation By State
+
+```{r,Computation_1}
+
+# using subset function
+#popstats3 <- subset(popstats2, state_code = "AK",select=State_Code:Per_Capita_HH_Inc_1989)
+
+
+# based on variable values
+popstats3 <- popstats2(which(popstats2$State_Code=='AK')
+
+summary(popstats3)
 
 ```
