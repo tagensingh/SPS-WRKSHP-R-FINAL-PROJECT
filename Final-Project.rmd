@@ -3,7 +3,7 @@
 ### Tage N Singh
 #### This Project use A Consolidate Dataset From 1969 to 1989 and is accessed from github.
 #### The Question ? ?
-#### -- Is THERE CORRELATION ACROSS STATES (AND DC) IN THE US AMONG THE FOLLOWING : :
+#### -- Is THERE CORRELATION ACROSS REGIONS/STATES (AND DC) IN THE US AMONG THE FOLLOWING : :
 #### -- US BIRTH RATES
 #### -- MEDIAN HOUSEHOLD INCOME
 #### -- PER CAPITA HOUSEHOLD INCOME
