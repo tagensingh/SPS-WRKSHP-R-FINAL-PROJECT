@@ -39,7 +39,7 @@ popstats2 <- popstats1
 names(popstats2)[1] <- "State_Code"
 names(popstats2)[2] <- "State_Name"
 names(popstats2)[3] <- "Region"
-names(popstats2)[3] <- "Births_1969"
+names(popstats2)[4] <- "Births_1969"
 names(popstats2)[5] <- "Births_1979"
 names(popstats2)[6] <- "Births_1989"
 names(popstats2)[7] <- "GDP_1969"
