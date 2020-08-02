@@ -412,98 +412,366 @@ library(dplyr)</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(&quot;tidyverse&quot;)</code></pre>
+<pre><code>## -- Attaching packages -------------------------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v tibble  3.0.3     v purrr   0.3.4
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.5.0</code></pre>
+<pre><code>## -- Conflicts ----------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>popstatsURL &lt;- (&quot;https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/1-SPS-Project-Consolidate-Data.csv&quot;)
 popstatsURL &lt;- (&quot;1-SPS-Project-Consolidate-Data.csv&quot;)
 popstats1 &lt;- read.table(file =popstatsURL, header = TRUE , sep = &quot;,&quot;)
 
 summary(popstats1)</code></pre>
-<pre><code>##     Region             State            State.Name         X1969.Births   
-##  Length:51          Length:51          Length:51          Min.   :  5874  
-##  Class :character   Class :character   Class :character   1st Qu.: 19306  
-##  Mode  :character   Mode  :character   Mode  :character   Median : 47896  
-##                                                           Mean   : 70569  
-##                                                           3rd Qu.: 86444  
-##                                                           Max.   :352858  
-##   X1979.Births     X1989.Births    X1969.GDP.C.DLS  X1979.GDP.C.DLS 
-##  Min.   :  7292   Min.   :  6768   Min.   :  1798   Min.   :  4399  
-##  1st Qu.: 19883   1st Qu.: 20201   1st Qu.:  4102   1st Qu.: 12505  
-##  Median : 47389   Median : 50381   Median :  9622   Median : 33496  
-##  Mean   : 68622   Mean   : 76741   Mean   : 18881   Mean   : 48812  
-##  3rd Qu.: 78964   3rd Qu.: 85797   3rd Qu.: 20260   3rd Qu.: 52526  
-##  Max.   :379212   Max.   :533429   Max.   :107031   Max.   :293491  
-##  X1989.GDP.C.DLS  X1969.Med.HH.Inc X1979.Med.HH.Inc X1989.Med.HH.Inc
-##  Min.   : 10730   Min.   : 5221    Min.   :12096    Min.   :20136   
-##  1st Qu.: 27255   1st Qu.: 7132    1st Qu.:14770    1st Qu.:25637   
-##  Median : 65526   Median : 8199    Median :16647    Median :28706   
-##  Mean   :105217   Mean   : 8163    Mean   :16631    Mean   :29135   
-##  3rd Qu.:120929   3rd Qu.: 9196    3rd Qu.:17804    3rd Qu.:31682   
-##  Max.   :722979   Max.   :11817    Max.   :25414    Max.   :41721   
-##  X1969.HH.Inc.Per.C.DLS X1979.HH.Inc.Per.C.DLS X1989.HH.Inc.Per.C.DLS
-##  Min.   :13935          Min.   :19675          Min.   :20576         
-##  1st Qu.:18778          1st Qu.:23826          1st Qu.:25369         
-##  Median :21370          Median :27088          Median :28617         
-##  Mean   :21344          Mean   :26924          Mean   :29348         
-##  3rd Qu.:23969          3rd Qu.:28935          3rd Qu.:32433         
-##  Max.   :28124          Max.   :38693          Max.   :43057</code></pre>
+<pre><code>##   Region_Code        Region             State            State.Name       
+##  Min.   : 1.000   Length:51          Length:51          Length:51         
+##  1st Qu.: 3.000   Class :character   Class :character   Class :character  
+##  Median : 5.000   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   : 5.667                                                           
+##  3rd Qu.: 8.000                                                           
+##  Max.   :11.000                                                           
+##   X1969.Births     X1979.Births     X1989.Births    X1969.GDP.C.DLS 
+##  Min.   :  5874   Min.   :  7292   Min.   :  6768   Min.   :  1798  
+##  1st Qu.: 19306   1st Qu.: 19883   1st Qu.: 20201   1st Qu.:  4102  
+##  Median : 47896   Median : 47389   Median : 50381   Median :  9622  
+##  Mean   : 70569   Mean   : 68622   Mean   : 76741   Mean   : 18881  
+##  3rd Qu.: 86444   3rd Qu.: 78964   3rd Qu.: 85797   3rd Qu.: 20260  
+##  Max.   :352858   Max.   :379212   Max.   :533429   Max.   :107031  
+##  X1979.GDP.C.DLS  X1989.GDP.C.DLS  X1969.Med.HH.Inc X1979.Med.HH.Inc
+##  Min.   :  4399   Min.   : 10730   Min.   : 5221    Min.   :12096   
+##  1st Qu.: 12505   1st Qu.: 27255   1st Qu.: 7132    1st Qu.:14770   
+##  Median : 33496   Median : 65526   Median : 8199    Median :16647   
+##  Mean   : 48812   Mean   :105217   Mean   : 8163    Mean   :16631   
+##  3rd Qu.: 52526   3rd Qu.:120929   3rd Qu.: 9196    3rd Qu.:17804   
+##  Max.   :293491   Max.   :722979   Max.   :11817    Max.   :25414   
+##  X1989.Med.HH.Inc X1969.HH.Inc.Per.C.DLS X1979.HH.Inc.Per.C.DLS
+##  Min.   :20136    Min.   :13935          Min.   :19675         
+##  1st Qu.:25637    1st Qu.:18778          1st Qu.:23826         
+##  Median :28706    Median :21370          Median :27088         
+##  Mean   :29135    Mean   :21344          Mean   :26924         
+##  3rd Qu.:31682    3rd Qu.:23969          3rd Qu.:28935         
+##  Max.   :41721    Max.   :28124          Max.   :38693         
+##  X1989.HH.Inc.Per.C.DLS
+##  Min.   :20576         
+##  1st Qu.:25369         
+##  Median :28617         
+##  Mean   :29348         
+##  3rd Qu.:32433         
+##  Max.   :43057</code></pre>
 <div id="fixing-the-headers" class="section level4">
 <h4>– Fixing The Headers</h4>
 <pre class="r"><code>popstats2 &lt;- popstats1
 
-names(popstats2)[1] &lt;- &quot;Region&quot;
-names(popstats2)[2] &lt;- &quot;State_Code&quot;
-names(popstats2)[3] &lt;- &quot;State_Name&quot;
-names(popstats2)[4] &lt;- &quot;Births_1969&quot;
-names(popstats2)[5] &lt;- &quot;Births_1979&quot;
-names(popstats2)[6] &lt;- &quot;Births_1989&quot;
-names(popstats2)[7] &lt;- &quot;GDP_1969&quot;
-names(popstats2)[8] &lt;- &quot;GDP_1979&quot;
-names(popstats2)[9] &lt;- &quot;GDP_1989&quot;
-names(popstats2)[10] &lt;- &quot;Median_HH_Inc_1969&quot;
-names(popstats2)[11] &lt;- &quot;Median_HH_Inc_1979&quot;
-names(popstats2)[12] &lt;- &quot;Median_HH_Inc_19689&quot;
-names(popstats2)[13] &lt;- &quot;Per_Capita_HH_Inc_1969&quot;
-names(popstats2)[14] &lt;- &quot;Per_Capita_HH_Inc_1979&quot;
-names(popstats2)[15] &lt;- &quot;Per_Capita_HH_Inc_1989&quot;
+names(popstats2)[1] &lt;- &quot;Region_Code&quot;
+names(popstats2)[2] &lt;- &quot;Region_Name&quot;
+names(popstats2)[3] &lt;- &quot;State_Code&quot;
+names(popstats2)[4] &lt;- &quot;State_Name&quot;
+names(popstats2)[5] &lt;- &quot;Births_1969&quot;
+names(popstats2)[6] &lt;- &quot;Births_1979&quot;
+names(popstats2)[7] &lt;- &quot;Births_1989&quot;
+names(popstats2)[8] &lt;- &quot;GDP_1969&quot;
+names(popstats2)[9] &lt;- &quot;GDP_1979&quot;
+names(popstats2)[10] &lt;- &quot;GDP_1989&quot;
+names(popstats2)[11] &lt;- &quot;Median_HH_Inc_1969&quot;
+names(popstats2)[12] &lt;- &quot;Median_HH_Inc_1979&quot;
+names(popstats2)[13] &lt;- &quot;Median_HH_Inc_19689&quot;
+names(popstats2)[14] &lt;- &quot;Per_Capita_HH_Inc_1969&quot;
+names(popstats2)[15] &lt;- &quot;Per_Capita_HH_Inc_1979&quot;
+names(popstats2)[16] &lt;- &quot;Per_Capita_HH_Inc_1989&quot;
 
 head(popstats2, 6)</code></pre>
-<pre><code>##        Region State_Code State_Name Births_1969 Births_1979 Births_1989
-## 1        West         CA California      352858      379212      533429
-## 2        West         HI     Hawaii       15750       17568       19051
-## 3        West         NV     Nevada        8902       12293       17894
-## 4 Great Lakes         IL   Illinois      193136      181153      181679
-## 5 Great Lakes         IN    Indiana       94562       87380       81635
-## 6 Great Lakes         MI   Michigan      163940      143237      137965
-##   GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
-## 1   106629   293491   722979               9302              18243
-## 2     4262    11869    29427              10675              20473
-## 3     2947    10295    27847               9505              18211
-## 4    60840   139253   266608               9706              19321
-## 5    24212    57918   107199               8921              17582
-## 6    47895   105413   190626               9997              19223
+<pre><code>##   Region_Code Region_Name State_Code State_Name Births_1969 Births_1979
+## 1           1    Far West         AK     Alaska        6824        9005
+## 2           2 Great Lakes         IL   Illinois      193136      181153
+## 3           2 Great Lakes         IN    Indiana       94562       87380
+## 4           2 Great Lakes         MI   Michigan      163940      143237
+## 5           2 Great Lakes         MN  Minnesota       65958       65744
+## 6           2 Great Lakes         OH       Ohio      189544      167117
+##   Births_1989 GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 1       11105     2074    10891    23453              11817              25414
+## 2      181679    60840   139253   266608               9706              19321
+## 3       81635    24212    57918   107199               8921              17582
+## 4      137965    47895   105413   190626               9997              19223
+## 5       66409    17681    46861    98313               8753              17761
+## 6      161647    52817   117117   217817               9279              17754
 ##   Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
-## 1               35798                  26162                  31488
-## 2               38829                  24418                  29381
-## 3               31011                  25728                  32088
-## 4               32252                  25301                  30619
-## 5               28797                  22224                  27111
-## 6               31020                  24302                  29184
+## 1               41408                  26966                  38693
+## 2               32252                  25301                  30619
+## 3               28797                  22224                  27111
+## 4               31020                  24302                  29184
+## 5               30909                  21993                  28284
+## 6               28706                  23158                  27654
 ##   Per_Capita_HH_Inc_1989
-## 1                  34995
-## 2                  33633
-## 3                  32447
-## 4                  32419
-## 5                  28043
-## 6                  30186</code></pre>
+## 1                  37557
+## 2                  32419
+## 3                  28043
+## 4                  30186
+## 5                  30687
+## 6                  28708</code></pre>
 <p>####Computing the correlation By State</p>
-<pre class="r"><code>popstats3 &lt;- subset(popstats2, Region==&quot;Far West&quot;,select=Region:Per_Capita_HH_Inc_1989)
+<pre class="r"><code>popstats31 &lt;- subset(popstats2, Region_Code == &quot;1&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats32 &lt;- subset(popstats2, Region_Code == &quot;2&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats33 &lt;- subset(popstats2, Region_Code == &quot;3&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats34 &lt;- subset(popstats2, Region_Code == &quot;4&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats35 &lt;- subset(popstats2, Region_Code == &quot;5&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats36 &lt;- subset(popstats2, Region_Code == &quot;6&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats37 &lt;- subset(popstats2, Region_Code == &quot;7&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats38 &lt;- subset(popstats2, Region_Code == &quot;8&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats39 &lt;- subset(popstats2, Region_Code == &quot;9&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats40 &lt;- subset(popstats2, Region_Code == &quot;10&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats41 &lt;- subset(popstats2, Region_Code == &quot;11&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
 
-head(popstats3, 6)</code></pre>
-<pre><code>##      Region State_Code State_Name Births_1969 Births_1979 Births_1989 GDP_1969
-## 51 Far West         AK     Alaska        6824        9005       11105     2074
-##    GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979 Median_HH_Inc_19689
-## 51    10891    23453              11817              25414               41408
-##    Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979 Per_Capita_HH_Inc_1989
-## 51                  26966                  38693                  37557</code></pre>
+
+
+head(popstats31, 6)</code></pre>
+<pre><code>##   Region_Name State_Code State_Name Births_1969 Births_1979 Births_1989
+## 1    Far West         AK     Alaska        6824        9005       11105
+##   GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 1     2074    10891    23453              11817              25414
+##   Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 1               41408                  26966                  38693
+##   Per_Capita_HH_Inc_1989
+## 1                  37557</code></pre>
+<pre class="r"><code>head(popstats32, 6)</code></pre>
+<pre><code>##   Region_Name State_Code State_Name Births_1969 Births_1979 Births_1989
+## 2 Great Lakes         IL   Illinois      193136      181153      181679
+## 3 Great Lakes         IN    Indiana       94562       87380       81635
+## 4 Great Lakes         MI   Michigan      163940      143237      137965
+## 5 Great Lakes         MN  Minnesota       65958       65744       66409
+## 6 Great Lakes         OH       Ohio      189544      167117      161647
+## 7 Great Lakes         WI  Wisconsin       74044       72839       70385
+##   GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 2    60840   139253   266608               9706              19321
+## 3    24212    57918   107199               8921              17582
+## 4    47895   105413   190626               9997              19223
+## 5    17681    46861    98313               8753              17761
+## 6    52817   117117   217817               9279              17754
+## 7    19521    50101    95217               8997              17680
+##   Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 2               32252                  25301                  30619
+## 3               28797                  22224                  27111
+## 4               31020                  24302                  29184
+## 5               30909                  21993                  28284
+## 6               28706                  23158                  27654
+## 7               29442                  21949                  27494
+##   Per_Capita_HH_Inc_1989
+## 2                  32419
+## 3                  28043
+## 4                  30186
+## 5                  30687
+## 6                  28708
+## 7                  28314</code></pre>
+<pre class="r"><code>head(popstats33, 6)</code></pre>
+<pre><code>##    Region_Name State_Code           State_Name Births_1969 Births_1979
+## 8     Midsouth         DC District of Columbia       27780       20232
+## 9     Midsouth         DE             Delaware       10116        9184
+## 10    Midsouth         KY             Kentucky       58276       60030
+## 11    Midsouth         MD             Maryland       60326       50980
+## 12    Midsouth         NC       North Carolina       93956       84249
+## 13    Midsouth         TN            Tennessee       73248       72148
+##    Births_1989 GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 8        21351     8096    18417    37469               8283              16211
+## 9        10959     3069     7304    18900               9309              17846
+## 10       50381    13206    35838    65526               6537              13965
+## 11       68083    17385    43628   107444              10101              20281
+## 12       97868    20882    54515   133866               7025              14481
+## 13       75595    15167    42194    91579               6631              14142
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 8                30727                  27813                  34012
+## 9                34875                  23636                  28276
+## 10               22534                  17555                  22692
+## 11               39386                  25424                  31480
+## 12               26647                  17910                  23281
+## 13               24807                  17837                  23585
+##    Per_Capita_HH_Inc_1989
+## 8                   40268
+## 9                   33812
+## 10                  23786
+## 11                  37813
+## 12                  27480
+## 13                  26136</code></pre>
+<pre class="r"><code>head(popstats34, 6)</code></pre>
+<pre><code>##    Region_Name State_Code   State_Name Births_1969 Births_1979 Births_1989
+## 16     Midwest         IA         Iowa       47896       47321       38361
+## 17     Midwest         KS       Kansas       35456       37419       37574
+## 18     Midwest         MO     Missouri       81266       78562       78331
+## 19     Midwest         ND North Dakota       11276       12752       11441
+## 20     Midwest         NE     Nebraska       24806       26566       24266
+## 21     Midwest         SD South Dakota       11276       12858       11253
+##    GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 16    12332    33496    52907               7880              16799
+## 17     9166    26300    48814               7578              16362
+## 18    21095    50601   101412               7672              15581
+## 19     2178     7218    10730               6909              15293
+## 20     6537    17423    31332               7426              15925
+## 21     2273     6716    11790               6450              13156
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 16               26229                  20878                  27088
+## 17               27291                  21204                  27901
+## 18               26362                  21370                  26257
+## 19               23213                  17874                  24359
+## 20               26016                  20248                  26329
+## 21               22503                  17280                  21626
+##    Per_Capita_HH_Inc_1989
+## 16                  26492
+## 17                  28365
+## 18                  27702
+## 19                  23568
+## 20                  26556
+## 21                  22737</code></pre>
+<pre class="r"><code>head(popstats35, 6)</code></pre>
+<pre><code>##      Region_Name State_Code State_Name Births_1969 Births_1979 Births_1989
+## 22 Mountain West         AZ    Arizona       34064       46714       65655
+## 23 Mountain West         CO   Colorado       40100       47741       53518
+## 24 Mountain West         ID      Idaho       13072       19533       15563
+## 25 Mountain West         MT    Montana       11620       13804       11393
+## 26 Mountain West         NM New Mexico       21316       24768       26686
+## 27 Mountain West         UT       Utah       24810       42095       37021
+##    GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 22     7563    27495    67896               8199              16448
+## 23     9480    33785    71179               8423              18056
+## 24     2750     9286    16909               7482              15285
+## 25     2761     8173    12630               7436              15420
+## 26     4091    13141    24927               7096              14654
+## 27     4036    13709    28668               8482              17671
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 22               27540                  21262                  26728
+## 23               30140                  22485                  30360
+## 24               25257                  19140                  23717
+## 25               22988                  19517                  25012
+## 26               24087                  17642                  23228
+## 27               29470                  19524                  23934
+##    Per_Capita_HH_Inc_1989
+## 22                  28708
+## 23                  31609
+## 24                  24434
+## 25                  23914
+## 26                  23984
+## 27                  23522</code></pre>
+<pre class="r"><code>head(popstats36, 6)</code></pre>
+<pre><code>##    Region_Name State_Code    State_Name Births_1969 Births_1979 Births_1989
+## 29 New England         CT   Connecticut       49184       38445       48152
+## 30 New England         MA Massachusetts       94852       72283       89958
+## 31 New England         ME         Maine       17296       15810       16520
+## 32 New England         NH New Hampshire       12288       12819       17053
+## 33 New England         RI  Rhode Island       15854       12251       14689
+## 34 New England         VT       Vermont        7778        7292        7871
+##    GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 29    15628    36855    95831              10877              20077
+## 30    27476    62965   158200               9563              17575
+## 31     3695     9335    22670               7315              13816
+## 32     2817     8351    23777               8652              17013
+## 33     4113     8845    21059               8617              16097
+## 34     1798     4399    11120               7961              14790
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 29               41721                  28124                  32308
+## 30               36952                  24671                  28311
+## 31               27854                  18445                  21895
+## 32               36329                  21609                  26443
+## 33               32181                  22594                  26181
+## 34               29792                  20067                  23452
+##    Per_Capita_HH_Inc_1989
+## 29                  43057
+## 30                  36734
+## 31                  27633
+## 32                  34036
+## 33                  31950
+## 34                  28849</code></pre>
+<pre class="r"><code>head(popstats37, 6)</code></pre>
+<pre><code>##    Region_Name State_Code State_Name Births_1969 Births_1979 Births_1989
+## 35  North West         OR     Oregon       34486       42870       41345
+## 36  North West         WA Washington       59238       63819       71396
+##    GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 35     9353    28372    52610               8296              16780
+## 36    18091    48713   108064               9125              18367
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 35               27250                  22789                  28686
+## 36               31183                  24302                  30645
+##    Per_Capita_HH_Inc_1989
+## 35                  28617
+## 36                  31826</code></pre>
+<pre class="r"><code>head(popstats38, 6)</code></pre>
+<pre><code>##    Region_Name State_Code   State_Name Births_1969 Births_1979 Births_1989
+## 37   Northeast         NJ   New Jersey      113754       93370      114585
+## 38   Northeast         NY     New York      311984      236975      281569
+## 39   Northeast         PA Pennsylvania      186692      159073      166771
+##    GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 37    35852    81051   205075              10371              19800
+## 38   107031   217725   473252               9268              16647
+## 39    54486   120527   233162               8548              16880
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 37               40927                  26597                  30850
+## 38               32965                  26119                  28462
+## 39               29069                  22195                  26864
+##    Per_Capita_HH_Inc_1989
+## 37                  39911
+## 38                  35192
+## 39                  30003</code></pre>
+<pre class="r"><code>head(popstats39, 6)</code></pre>
+<pre><code>##      Region_Name State_Code State_Name Births_1969 Births_1979 Births_1989
+## 40 South Central         AR   Arkansas       33400       35406       34139
+## 41 South Central         LA  Louisiana       75092       79365       74236
+## 42 South Central         OK   Oklahoma       41756       47389       46401
+## 43 South Central         TX      Texas      226868      260561      307563
+##    GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 40     6232    19099    37128               5356              12214
+## 41    16321    51653    87574               6538              15227
+## 42     9622    31546    55007               6596              14750
+## 43    48575   171608   349952               7538              16708
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 40               21147                  15506                  21311
+## 41               21949                  16867                  24408
+## 42               23577                  19502                  26033
+## 43               27016                  20212                  27350
+##    Per_Capita_HH_Inc_1989
+## 40                  22436
+## 41                  22681
+## 42                  25364
+## 43                  27520</code></pre>
+<pre class="r"><code>head(popstats40, 6)</code></pre>
+<pre><code>##    Region_Name State_Code     State_Name Births_1969 Births_1979 Births_1989
+## 44   Southeast         AL        Alabama       64068       61688       59917
+## 45   Southeast         FL        Florida      106926      120774      183968
+## 46   Southeast         GA        Georgia       91622       89582      107023
+## 47   Southeast         MS    Mississippi       47102       45628       41269
+## 48   Southeast         SC South Carolina       49182       48631       53003
+##    GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 44    11866    33712    68394               6419              13669
+## 45    27428    86263   241633               7168              14675
+## 46    18082    51550   133794               7346              15033
+## 47     6801    20011    37209               5221              12096
+## 48     8874    25507    61347               6835              14711
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 44               23597                  16773                  22374
+## 45               27483                  22137                  27597
+## 46               29021                  19111                  24302
+## 47               20136                  13935                  19675
+## 48               26256                  16672                  22343
+##    Per_Capita_HH_Inc_1989
+## 44                  24496
+## 45                  31346
+## 46                  29071
+## 47                  20576
+## 48                  25373</code></pre>
+<pre class="r"><code>head(popstats41, 6)</code></pre>
+<pre><code>##    Region_Name State_Code State_Name Births_1969 Births_1979 Births_1989
+## 49        West         CA California      352858      379212      533429
+## 50        West         HI     Hawaii       15750       17568       19051
+## 51        West         NV     Nevada        8902       12293       17894
+##    GDP_1969 GDP_1979 GDP_1989 Median_HH_Inc_1969 Median_HH_Inc_1979
+## 49   106629   293491   722979               9302              18243
+## 50     4262    11869    29427              10675              20473
+## 51     2947    10295    27847               9505              18211
+##    Median_HH_Inc_19689 Per_Capita_HH_Inc_1969 Per_Capita_HH_Inc_1979
+## 49               35798                  26162                  31488
+## 50               38829                  24418                  29381
+## 51               31011                  25728                  32088
+##    Per_Capita_HH_Inc_1989
+## 49                  34995
+## 50                  33633
+## 51                  32447</code></pre>
 </div>
 </div>
 </div>

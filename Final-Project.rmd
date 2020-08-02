@@ -18,6 +18,7 @@
 library(datasets)
 library(ggplot2)
 library(dplyr)
+library("tidyverse")
 
 
 
@@ -60,18 +61,17 @@ head(popstats2, 6)
 ####Computing the correlation By State
 
 ```{r,Computation_1}
-
-popstats31 <- subset(popstats2, Region_code =="1",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats32 <- subset(popstats2, Region_code =="2",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats33 <- subset(popstats2, Region_code =="3",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats34 <- subset(popstats2, Region_code =="4",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats35 <- subset(popstats2, Region_code =="5",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats36 <- subset(popstats2, Region_code =="6",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats37 <- subset(popstats2, Region_code =="7",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats38 <- subset(popstats2, Region_code =="8",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats39 <- subset(popstats2, Region_code =="9",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats310 <- subset(popstats2, Region_code =="10",select=Region_Code:Per_Capita_HH_Inc_1989)
-popstats311<- subset(popstats2, Region_code =="11",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats31 <- subset(popstats2, Region_Code == "1",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats32 <- subset(popstats2, Region_Code == "2",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats33 <- subset(popstats2, Region_Code == "3",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats34 <- subset(popstats2, Region_Code == "4",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats35 <- subset(popstats2, Region_Code == "5",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats36 <- subset(popstats2, Region_Code == "6",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats37 <- subset(popstats2, Region_Code == "7",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats38 <- subset(popstats2, Region_Code == "8",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats39 <- subset(popstats2, Region_Code == "9",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats40 <- subset(popstats2, Region_Code == "10",select=Region_Name:Per_Capita_HH_Inc_1989)
+popstats41 <- subset(popstats2, Region_Code == "11",select=Region_Name:Per_Capita_HH_Inc_1989)
 
 
 
@@ -84,8 +84,9 @@ head(popstats36, 6)
 head(popstats37, 6)
 head(popstats38, 6)
 head(popstats39, 6)
-head(popstats310, 6)
-head(popstats311, 6)
+head(popstats40, 6)
+head(popstats41, 6)
+
 
 
 ```
