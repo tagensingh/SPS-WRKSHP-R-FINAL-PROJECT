@@ -975,7 +975,7 @@ b1969_g1969</code></pre>
 ## sample estimates:
 ##      cor 
 ## 0.998185</code></pre>
-<pre class="r"><code>## - Births 1969 to GDP 1969
+<pre class="r"><code>## - Births 1969 to Median HH Income 1969
 b1969_medhh_1969 &lt;- cor.test(regions$Births_1969, regions$Median_HH_Inc_1969, 
                     method = &quot;pearson&quot;)
 b1969_medhh_1969</code></pre>
@@ -990,7 +990,7 @@ b1969_medhh_1969</code></pre>
 ## sample estimates:
 ##       cor 
 ## 0.9759915</code></pre>
-<pre class="r"><code>## - Births 1969 to GDP 1969
+<pre class="r"><code>## - Births 1969 to GDP Per Capita HH Income
 b1969_percaphh1969 &lt;- cor.test(regions$Births_1969, regions$Per_Capita_HH_Inc_1969, 
                     method = &quot;pearson&quot;)
 b1969_percaphh1969</code></pre>
@@ -1005,6 +1005,53 @@ b1969_percaphh1969</code></pre>
 ## sample estimates:
 ##       cor 
 ## 0.9758384</code></pre>
+<pre class="r"><code>########
+
+## - Births 1979 to GDP 1979
+b1979_g1979 &lt;- cor.test(regions$Births_1979, regions$GDP_1979, 
+                    method = &quot;pearson&quot;)
+b1979_g1979</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  regions$Births_1979 and regions$GDP_1979
+## t = 64.869, df = 9, p-value = 2.482e-13
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9957378 0.9997329
+## sample estimates:
+##       cor 
+## 0.9989323</code></pre>
+<pre class="r"><code>## - Births 1969 to Median HH Income 1969
+b1979_medhh_1979 &lt;- cor.test(regions$Births_1979, regions$Median_HH_Inc_1979, 
+                    method = &quot;pearson&quot;)
+b1979_medhh_1979</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  regions$Births_1979 and regions$Median_HH_Inc_1979
+## t = 14.636, df = 9, p-value = 1.396e-07
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9209713 0.9948667
+## sample estimates:
+##       cor 
+## 0.9796316</code></pre>
+<pre class="r"><code>## - Births 1969 to GDP Per Capita HH Income
+b1979_percaphh1979 &lt;- cor.test(regions$Births_1979, regions$Per_Capita_HH_Inc_1979, 
+                    method = &quot;pearson&quot;)
+b1979_percaphh1979</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  regions$Births_1979 and regions$Per_Capita_HH_Inc_1979
+## t = 14.626, df = 9, p-value = 1.404e-07
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9208747 0.9948602
+## sample estimates:
+##       cor 
+## 0.9796059</code></pre>
 </div>
 </div>
 </div>

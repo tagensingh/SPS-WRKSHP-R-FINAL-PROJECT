@@ -244,5 +244,28 @@ b1979_percaphh1979 <- cor.test(regions$Births_1979, regions$Per_Capita_HH_Inc_19
                     method = "pearson")
 b1979_percaphh1979
 
+#######
+
+
+## - Births 1979 to GDP 1979
+b1989_g1989 <- cor.test(regions$Births_1989, regions$GDP_1989, 
+                    method = "pearson")
+b1989_g1989
+
+
+
+## - Births 1989 to Median HH Income 1989
+b1979_medhh_1989 <- cor.test(regions$Births_1989, regions$Median_HH_Inc_1989, 
+                    method = "pearson")
+b1989_medhh_1989
+
+
+## - Births 1989 to GDP Per Capita HH Income
+b1989_percaphh1989 <- cor.test(regions$Births_1989, regions$Per_Capita_HH_Inc_1989, 
+                    method = "pearson")
+b1989_percaphh1989
 
 ```
+
+## -- From the graphs and correlation calculations--
+### THERE IS POSITIVE CORRELTATION BETWEEN THE BIRTHS AND GDP, MEDIAN HOUSEHOLD INCOME AND PER CAPITA HOUSEHOLD INCOME
