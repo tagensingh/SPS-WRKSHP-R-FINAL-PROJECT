@@ -36,21 +36,22 @@ summary(popstats1)
 
 popstats2 <- popstats1
 
-names(popstats2)[1] <- "Region"
-names(popstats2)[2] <- "State_Code"
-names(popstats2)[3] <- "State_Name"
-names(popstats2)[4] <- "Births_1969"
-names(popstats2)[5] <- "Births_1979"
-names(popstats2)[6] <- "Births_1989"
-names(popstats2)[7] <- "GDP_1969"
-names(popstats2)[8] <- "GDP_1979"
-names(popstats2)[9] <- "GDP_1989"
-names(popstats2)[10] <- "Median_HH_Inc_1969"
-names(popstats2)[11] <- "Median_HH_Inc_1979"
-names(popstats2)[12] <- "Median_HH_Inc_19689"
-names(popstats2)[13] <- "Per_Capita_HH_Inc_1969"
-names(popstats2)[14] <- "Per_Capita_HH_Inc_1979"
-names(popstats2)[15] <- "Per_Capita_HH_Inc_1989"
+names(popstats2)[1] <- "Region_Code"
+names(popstats2)[2] <- "Region_Name"
+names(popstats2)[3] <- "State_Code"
+names(popstats2)[4] <- "State_Name"
+names(popstats2)[5] <- "Births_1969"
+names(popstats2)[6] <- "Births_1979"
+names(popstats2)[7] <- "Births_1989"
+names(popstats2)[8] <- "GDP_1969"
+names(popstats2)[9] <- "GDP_1979"
+names(popstats2)[10] <- "GDP_1989"
+names(popstats2)[11] <- "Median_HH_Inc_1969"
+names(popstats2)[12] <- "Median_HH_Inc_1979"
+names(popstats2)[13] <- "Median_HH_Inc_19689"
+names(popstats2)[14] <- "Per_Capita_HH_Inc_1969"
+names(popstats2)[15] <- "Per_Capita_HH_Inc_1979"
+names(popstats2)[16] <- "Per_Capita_HH_Inc_1989"
 
 head(popstats2, 6)
 
@@ -60,8 +61,31 @@ head(popstats2, 6)
 
 ```{r,Computation_1}
 
-popstats3 <- subset(popstats2, Region=="Far West",select=Region:Per_Capita_HH_Inc_1989)
+popstats31 <- subset(popstats2, Region_code =="1",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats32 <- subset(popstats2, Region_code =="2",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats33 <- subset(popstats2, Region_code =="3",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats34 <- subset(popstats2, Region_code =="4",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats35 <- subset(popstats2, Region_code =="5",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats36 <- subset(popstats2, Region_code =="6",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats37 <- subset(popstats2, Region_code =="7",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats38 <- subset(popstats2, Region_code =="8",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats39 <- subset(popstats2, Region_code =="9",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats310 <- subset(popstats2, Region_code =="10",select=Region_Code:Per_Capita_HH_Inc_1989)
+popstats311<- subset(popstats2, Region_code =="11",select=Region_Code:Per_Capita_HH_Inc_1989)
 
-head(popstats3, 6)
+
+
+head(popstats31, 6)
+head(popstats32, 6)
+head(popstats33, 6)
+head(popstats34, 6)
+head(popstats35, 6)
+head(popstats36, 6)
+head(popstats37, 6)
+head(popstats38, 6)
+head(popstats39, 6)
+head(popstats310, 6)
+head(popstats311, 6)
+
 
 ```
