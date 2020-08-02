@@ -1052,7 +1052,61 @@ b1979_percaphh1979</code></pre>
 ## sample estimates:
 ##       cor 
 ## 0.9796059</code></pre>
+<pre class="r"><code>#######
+
+
+## - Births 1979 to GDP 1979
+b1989_g1989 &lt;- cor.test(regions$Births_1989, regions$GDP_1989, 
+                    method = &quot;pearson&quot;)
+b1989_g1989</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  regions$Births_1989 and regions$GDP_1989
+## t = 66.616, df = 9, p-value = 1.955e-13
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9959577 0.9997467
+## sample estimates:
+##       cor 
+## 0.9989875</code></pre>
+<pre class="r"><code>## - Births 1989 to Median HH Income 1989
+b1989_medhh_1989 &lt;- cor.test(regions$Births_1989, regions$Median_HH_Inc_1989, 
+                    method = &quot;pearson&quot;)
+b1989_medhh_1989</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  regions$Births_1989 and regions$Median_HH_Inc_1989
+## t = 14.217, df = 9, p-value = 1.796e-07
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9165398 0.9945671
+## sample estimates:
+##       cor 
+## 0.9784525</code></pre>
+<pre class="r"><code>## - Births 1989 to GDP Per Capita HH Income
+b1989_percaphh1989 &lt;- cor.test(regions$Births_1989, regions$Per_Capita_HH_Inc_1989, 
+                    method = &quot;pearson&quot;)
+b1989_percaphh1989</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  regions$Births_1989 and regions$Per_Capita_HH_Inc_1989
+## t = 14.133, df = 9, p-value = 1.89e-07
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9156109 0.9945042
+## sample estimates:
+##       cor 
+## 0.9782049</code></pre>
 </div>
+</div>
+</div>
+<div id="from-the-graphs-and-correlation-calculations" class="section level2">
+<h2>– From the graphs and correlation calculations–</h2>
+<div id="there-is-positive-correltation-between-the-births-and-gdp-median-household-income-and-per-capita-household-income" class="section level3">
+<h3>THERE IS POSITIVE CORRELTATION BETWEEN THE BIRTHS AND GDP, MEDIAN HOUSEHOLD INCOME AND PER CAPITA HOUSEHOLD INCOME</h3>
 </div>
 </div>
 </div>

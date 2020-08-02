@@ -255,7 +255,7 @@ b1989_g1989
 
 
 ## - Births 1989 to Median HH Income 1989
-b1979_medhh_1989 <- cor.test(regions$Births_1989, regions$Median_HH_Inc_1989, 
+b1989_medhh_1989 <- cor.test(regions$Births_1989, regions$Median_HH_Inc_1989, 
                     method = "pearson")
 b1989_medhh_1989
 
