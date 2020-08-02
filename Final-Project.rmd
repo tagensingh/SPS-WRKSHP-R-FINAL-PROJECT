@@ -60,7 +60,7 @@ head(popstats2, 6)
 
 ```{r,Computation_1}
 
-popstats3 <- subset(popstats2, Region=="Far West",select=Births_1969:Median_HH_Inc_1969)
+popstats3 <- subset(popstats2, Region=="Far West",select=Region:Per_Capita_HH_Inc_1989)
 
 head(popstats3, 6)
 
