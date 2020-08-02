@@ -36,9 +36,9 @@ summary(popstats1)
 
 popstats2 <- popstats1
 
-names(popstats2)[1] <- "State_Code"
-names(popstats2)[2] <- "State_Name"
-names(popstats2)[3] <- "Region"
+names(popstats2)[1] <- "Region"
+names(popstats2)[2] <- "State_Code"
+names(popstats2)[3] <- "State_Name"
 names(popstats2)[4] <- "Births_1969"
 names(popstats2)[5] <- "Births_1979"
 names(popstats2)[6] <- "Births_1989"
@@ -60,13 +60,8 @@ head(popstats2, 6)
 
 ```{r,Computation_1}
 
-# using subset function
-#popstats3 <- subset(popstats2, state_code = "AK",select=State_Code:Per_Capita_HH_Inc_1989)
+popstats3 <- subset(popstats2, Region=="Far West",select=Births_1969:Median_HH_Inc_1969)
 
-
-# based on variable values
-#popstats3 <- popstats2(which(popstats2$State_Code=='AK')
-
-#summary(popstats3)
+head(popstats3, 6)
 
 ```
