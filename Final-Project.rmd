@@ -94,7 +94,7 @@ head(popstats41, 6)
 
 #### Plotting the graphs
 
-```{r,graphs2}
+```{r,graphsprep}
 library("ggpubr")
 
 
@@ -199,5 +199,32 @@ ggscatter(regions, x = "Births_1989", y = "Per_Capita_HH_Inc_1989",
           add = "reg.line", conf.int = TRUE, 
           cor.coef = TRUE, cor.method = "pearson",
           xlab = "Births 1989", ylab = "Per Capita HH Inc 1989")
+
+```
+
+
+```{r,correlation_calcs}
+
+## - Births 1969 to GDP 1969
+b1969_g1969 <- cor.test(regions$Births_1969, regions$GDP_1969, 
+                    method = "pearson")
+b1969_g1969
+
+
+
+## - Births 1969 to GDP 1969
+b1969_medhh_1969 <- cor.test(regions$Births_1969, regions$Median_HH_Inc_1969, 
+                    method = "pearson")
+b1969_medhh_1969
+
+
+## - Births 1969 to GDP 1969
+b1969_percaphh1969 <- cor.test(regions$Births_1969, regions$Per_Capita_HH_Inc_1969, 
+                    method = "pearson")
+b1969_percaphh1969
+
+
+
+
 
 ```
