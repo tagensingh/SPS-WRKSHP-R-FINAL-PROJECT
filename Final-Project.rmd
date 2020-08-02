@@ -95,7 +95,7 @@ head(popstats41, 6)
 #### Plotting the graphs
 
 ```{r,graphs2}
-
+library("ggpubr")
 
 
 regionsURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/Regions_Totals.csv")
@@ -130,6 +130,9 @@ head(regions,12)
 
 ```{r,Graphs3}
 
-ggplot(data = regions,mapping = aes(x = Region, y = Births_1969))
+ggscatter(regions, x = "Births_1969", y = "Median_HH_Inc_1969", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Births 1969", ylab = "Median HH Inc 1969")
 
 ```
