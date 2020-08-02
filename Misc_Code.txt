@@ -3,3 +3,8 @@ gbirths <- ((sum(popstats31$Births_1969))&(sum(popstats31$Births_1969)))
 gbirths
 
 ggplot(data = popstats32, aes(x = State_Name, y = Births_1969)) + geom_point()   --Works
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+

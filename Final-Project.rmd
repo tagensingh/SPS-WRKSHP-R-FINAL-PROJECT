@@ -152,6 +152,7 @@ ggscatter(regions, x = "Births_1969", y = "Per_Capita_HH_Inc_1969",
 
 ```
 
+
 ```{r,Graphs1979}
 
 ggscatter(regions, x = "Births_1979", y = "GDP_1979", 
@@ -186,7 +187,7 @@ ggscatter(regions, x = "Births_1989", y = "GDP_1989",
 
 ##
 
-ggscatter(regions, x = "Births_1989", y = "Median_HH_Inc_1989", 
+ggscatter(regions, x = "Births_1979", y = "Median_HH_Inc_1979", 
           add = "reg.line", conf.int = TRUE, 
           cor.coef = TRUE, cor.method = "pearson",
           xlab = "Births 1989", ylab = "Median HH Inc 1989")
@@ -194,13 +195,9 @@ ggscatter(regions, x = "Births_1989", y = "Median_HH_Inc_1989",
 
 ##
 
-ggscatter(regions, x = "Births_1989", y = "Per_Capita_HH_Inc_1989", 
+ggscatter(regions, x = "Births_1979", y = "Per_Capita_HH_Inc_1989", 
           add = "reg.line", conf.int = TRUE, 
           cor.coef = TRUE, cor.method = "pearson",
           xlab = "Births 1989", ylab = "Per Capita HH Inc 1989")
 
-
 ```
-
-
-
