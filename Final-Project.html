@@ -481,6 +481,9 @@ names(popstats2)[14] &lt;- &quot;Per_Capita_HH_Inc_1969&quot;
 names(popstats2)[15] &lt;- &quot;Per_Capita_HH_Inc_1979&quot;
 names(popstats2)[16] &lt;- &quot;Per_Capita_HH_Inc_1989&quot;
 
+
+popstats2$Region_code &lt;- factor(popstats2$Region_Code, ordered = TRUE)
+
 head(popstats2, 6)</code></pre>
 <pre><code>##   Region_Code Region_Name State_Code State_Name Births_1969 Births_1979
 ## 1           1    Far West         AK     Alaska        6824        9005
@@ -503,13 +506,13 @@ head(popstats2, 6)</code></pre>
 ## 4               31020                  24302                  29184
 ## 5               30909                  21993                  28284
 ## 6               28706                  23158                  27654
-##   Per_Capita_HH_Inc_1989
-## 1                  37557
-## 2                  32419
-## 3                  28043
-## 4                  30186
-## 5                  30687
-## 6                  28708</code></pre>
+##   Per_Capita_HH_Inc_1989 Region_code
+## 1                  37557           1
+## 2                  32419           2
+## 3                  28043           2
+## 4                  30186           2
+## 5                  30687           2
+## 6                  28708           2</code></pre>
 <p>####Computing the correlation By State</p>
 <pre class="r"><code>popstats31 &lt;- subset(popstats2, Region_Code == &quot;1&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
 popstats32 &lt;- subset(popstats2, Region_Code == &quot;2&quot;,select=Region_Name:Per_Capita_HH_Inc_1989)
