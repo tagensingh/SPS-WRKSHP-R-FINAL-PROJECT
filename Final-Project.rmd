@@ -212,19 +212,37 @@ b1969_g1969
 
 
 
-## - Births 1969 to GDP 1969
+## - Births 1969 to Median HH Income 1969
 b1969_medhh_1969 <- cor.test(regions$Births_1969, regions$Median_HH_Inc_1969, 
                     method = "pearson")
 b1969_medhh_1969
 
 
-## - Births 1969 to GDP 1969
+## - Births 1969 to GDP Per Capita HH Income
 b1969_percaphh1969 <- cor.test(regions$Births_1969, regions$Per_Capita_HH_Inc_1969, 
                     method = "pearson")
 b1969_percaphh1969
 
 
+########
 
+## - Births 1979 to GDP 1979
+b1979_g1979 <- cor.test(regions$Births_1979, regions$GDP_1979, 
+                    method = "pearson")
+b1979_g1979
+
+
+
+## - Births 1969 to Median HH Income 1969
+b1979_medhh_1979 <- cor.test(regions$Births_1979, regions$Median_HH_Inc_1979, 
+                    method = "pearson")
+b1979_medhh_1979
+
+
+## - Births 1969 to GDP Per Capita HH Income
+b1979_percaphh1979 <- cor.test(regions$Births_1979, regions$Per_Capita_HH_Inc_1979, 
+                    method = "pearson")
+b1979_percaphh1979
 
 
 ```
