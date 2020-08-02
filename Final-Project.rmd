@@ -94,8 +94,22 @@ head(popstats41, 6)
 
 #### Plotting the graphs
 
-```{r,graphs}
+```{r,graphs2}
 
-summary(popstats31$Births_1969)
+library(datasets)
+library(ggplot2)
+library(dplyr)
+library("tidyverse")
+
+
+
+
+regionsURL <- ("https://raw.githubusercontent.com/tagensingh/SPS-WRKSHP-R-FINAL-PROJECT/master/Regions_totals.csv")
+regionsURL <- ("Regions_Totals.csv")
+regions <- read.table(file =popstatsURL, header = TRUE , sep = ",")
+
+summary(popstats1
+
+
 
 ```
